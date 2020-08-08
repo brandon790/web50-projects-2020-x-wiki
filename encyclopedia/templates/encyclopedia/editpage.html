@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Edit
+{% endblock %}
+
+
+
+
+{% block body %}
+    <form action="wiki/{{ existtitle }}" method="POST">
+        {% csrf_token %}
+        <label>Entry Name:</label>
+        <input value="{{ existtitle }}" name="title" readonly></input><br />
+        <label>Content:</label><br />
+        <textarea name="content">{{ contents }}</textarea>
+        <br />
+
+        <input type="submit" value="Update">
+    </form>
+
+{% endblock %}
